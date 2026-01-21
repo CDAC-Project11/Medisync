@@ -1,0 +1,54 @@
+.page-content {
+  padding-top: 90px;
+}
+
+.health-card {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.gauge-container {
+  position: relative;
+  max-width: 400px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.gauge-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.bmi-result {
+  text-align: center;
+  margin-top: 25px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 14px;
+}
+
+.bmi-result h4 {
+  font-weight: 700;
+  color: #084298;
+}
+
+.bmi-result p {
+  color: #475569;
+  font-weight: 600;
+}
+
+.diet-box {
+  background: #e0f2fe;
+  padding: 20px;
+  border-radius: 14px;
+  margin-top: 25px;
+}
+
+.diet-box h5 {
+  color: #084298;
+}

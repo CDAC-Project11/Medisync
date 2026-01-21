@@ -1,0 +1,60 @@
+.analysis-wrapper {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.analysis-wrapper h1 {
+  text-align: center;
+  color: #084298;
+  font-weight: 800;
+}
+
+/* SUMMARY CARDS */
+.stat-card {
+  padding: 20px;
+  border-radius: 14px;
+  color: white;
+  text-align: center;
+}
+
+.stat-card h6 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.stat-card h3 {
+  font-weight: 800;
+}
+
+/* Card Colors */
+.revenue { background: #198754; }
+.income { background: #0d6efd; }
+.patients { background: #6f42c1; }
+.today { background: #fd7e14; }
+
+/* ANALYSIS CARDS */
+.analysis-card {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+}
+
+.trend-list {
+  list-style: none;
+  padding: 0;
+}
+
+.trend-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #e9f2ff;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}

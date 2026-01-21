@@ -1,0 +1,70 @@
+/* PAGE OVERLAY */
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* GLASS CARD */
+.glass-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* SCROLLBAR */
+.glass-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.glass-card::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+/* NOTIFICATION CARD */
+.notif-box {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #084298;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.notif-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #084298;
+}
+
+.notif-time {
+    font-size: 12px;
+    color: #555;
+    margin-top: 6px;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: rgba(255, 0, 0, 0.1);
+    border: none;
+    color: red;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: red;
+    color: white;
+}

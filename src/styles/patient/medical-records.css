@@ -1,0 +1,131 @@
+/* =====================================================
+   GLOBAL BACKGROUND
+   ===================================================== */
+body {
+    background-image: url("../../assets/images/doctor.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: "Poppins", system-ui, Arial, sans-serif;
+}
+
+/* Light blue overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(99, 161, 208, 0.45);
+    z-index: -1;
+}
+
+/* =====================================================
+   PAGE LAYOUT
+   ===================================================== */
+.page-content {
+    padding-top: 90px;
+    /* avoids navbar overlap */
+    padding-bottom: 40px;
+}
+
+.records-wrapper {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 14px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 32px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================================
+   HEADINGS
+   ===================================================== */
+.records-wrapper h1 {
+    text-align: center;
+    color: #084298;
+    font-weight: 800;
+}
+
+.records-wrapper .text-secondary {
+    text-align: center;
+    color: #345b8c !important;
+    margin-bottom: 20px;
+}
+
+/* =====================================================
+   SEARCH & FILTER
+   ===================================================== */
+.card.shadow-sm {
+    border-radius: 12px;
+    border: 1px solid rgba(13, 110, 253, 0.15);
+}
+
+input.form-control {
+    border-radius: 10px;
+}
+
+input.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+.record-table {
+    background: white;
+}
+
+.record-table th {
+    background: #0d6efd;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.record-table td {
+    vertical-align: middle;
+    color: #1d2b39;
+    font-size: 14px;
+}
+
+.record-table tr:hover {
+    background-color: #f2f7ff;
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+.btn-outline-info {
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 4px 14px;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+@media (max-width: 992px) {
+    .records-wrapper {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .records-wrapper {
+        padding: 18px;
+    }
+
+    .record-table th,
+    .record-table td {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .records-wrapper {
+        padding: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+}
