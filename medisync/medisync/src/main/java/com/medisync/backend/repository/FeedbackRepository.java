@@ -1,0 +1,15 @@
+package com.medisync.backend.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.medisync.backend.entity.Feedback;
+
+@Repository
+public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
+
+    // MUST match entity field name: patientId
+    List<Feedback> findByPatientId(Long patientId);
+}
