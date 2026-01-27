@@ -3,11 +3,13 @@ import Navbar from "../../components/Navbar";
 import "../../styles/auth/register.css";
 
 function Register() {
+
     // ---------------- STATE ----------------
     const [form, setForm] = useState({
         name: "",
         gender: "",
         dob: "",
+        bloodGroup: "",
         mobile: "",
         email: "",
         address: "",
@@ -32,13 +34,21 @@ function Register() {
     // ---------------- VALIDATION ----------------
     const validate = () => {
         let err = {};
+        const allowedGroups = ["A+","A-","B+","B-","AB+","AB-","O+","O-"];
 
         if (!form.name || !nameRegex.test(form.name))
             err.name = "Invalid name (letters & spaces only)";
 
-        if (!form.gender) err.gender = "Please select gender";
+        if (!form.gender)
+            err.gender = "Please select gender";
 
-        if (!form.dob) err.dob = "Date of birth required";
+        if (!form.dob)
+            err.dob = "Date of birth required";
+
+        if (!form.bloodGroup)
+            err.bloodGroup = "Please select blood group";
+        else if (!allowedGroups.includes(form.bloodGroup))
+            err.bloodGroup = "Invalid blood group selected";
 
         if (!mobileRegex.test(form.mobile))
             err.mobile = "Invalid mobile number";
@@ -50,8 +60,7 @@ function Register() {
             err.address = "Address too short";
 
         if (!passRegex.test(form.password))
-            err.password =
-                "Password must contain upper, lower, digit & special char";
+            err.password = "Password must contain upper, lower, digit & special char";
 
         if (form.password !== form.cpassword)
             err.cpassword = "Passwords do not match";
@@ -73,6 +82,7 @@ function Register() {
             name: form.name,
             gender: form.gender,
             dob: form.dob,
+            bloodGroup: form.bloodGroup,
             mobile: form.mobile,
             email: form.email,
             address: form.address,
@@ -80,22 +90,27 @@ function Register() {
         };
 
         try {
-            // 🔗 BACKEND CALL (enable when backend is ready)
+            // 🔗 BACKEND CALL (enable later)
             /*
             await axios.post("http://localhost:8080/api/register", payload);
             */
 
+            console.log("Submitted Data:", payload);
+
             setMessage("Registration successful! Please login.");
+
             setForm({
                 name: "",
                 gender: "",
                 dob: "",
+                bloodGroup: "",
                 mobile: "",
                 email: "",
                 address: "",
                 password: "",
                 cpassword: "",
             });
+
         } catch (err) {
             setMessage("Registration failed. Try again.");
         }
@@ -112,7 +127,7 @@ function Register() {
                         <div className="card shadow-lg border-0 reg-card">
                             <div className="card-body p-4">
 
-                                <h3 className="mb-3">Patient Registration</h3>
+                                <h3 className="mb-3 text-center">Patient Registration</h3>
 
                                 {message && (
                                     <p className="text-center fw-semibold text-danger">
@@ -176,6 +191,28 @@ function Register() {
                                     </div>
                                 </div>
 
+                                {/* BLOOD GROUP */}
+                                <div className="mb-3">
+                                    <label className="form-label">Blood Group</label>
+                                    <select
+                                        name="bloodGroup"
+                                        className="form-select"
+                                        value={form.bloodGroup}
+                                        onChange={handleChange}
+                                    >
+                                        <option value="">Select Blood Group</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                    </select>
+                                    <small className="text-danger">{errors.bloodGroup}</small>
+                                </div>
+
                                 {/* EMAIL */}
                                 <div className="mb-3">
                                     <label className="form-label">Email</label>
@@ -230,7 +267,8 @@ function Register() {
                                     </div>
                                 </div>
 
-                                <div className="d-grid">
+                                {/* SUBMIT */}
+                                <div className="d-grid mt-3">
                                     <button className="btn btn-primary" onClick={handleSubmit}>
                                         Register
                                     </button>

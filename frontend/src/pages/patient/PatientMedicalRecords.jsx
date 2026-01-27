@@ -23,15 +23,35 @@ function PatientMedicalRecords() {
                     date: "2024-03-10",
                     symptoms: "Fever, cough",
                     diagnosis: "Viral Infection",
-                    prescription: "Paracetamol, Rest",
+                    prescription: [
+                        {
+                            name: "Paracetamol",
+                            dosage: "500mg",
+                            duration: "5 Days",
+                            timing: "After Eating"
+                        }
+                    ],
                     report: "Blood Test"
                 },
                 {
                     id: 2,
                     date: "2024-02-20",
-                    symptoms: "Headache",
-                    diagnosis: "Migraine",
-                    prescription: "Pain Relief Medication",
+                    symptoms: "Migraine",
+                    diagnosis: "Headache Disorder",
+                    prescription: [
+                        {
+                            name: "Pain Relief Tablet",
+                            dosage: "250mg",
+                            duration: "3 Days",
+                            timing: "Before Eating"
+                        },
+                        {
+                            name: "Vitamin B Complex",
+                            dosage: "1 Tablet",
+                            duration: "10 Days",
+                            timing: "After Eating"
+                        }
+                    ],
                     report: "MRI Scan"
                 }
             ];
@@ -90,7 +110,25 @@ function PatientMedicalRecords() {
                                             <td>{r.date}</td>
                                             <td>{r.symptoms}</td>
                                             <td>{r.diagnosis}</td>
-                                            <td>{r.prescription}</td>
+
+                                            {/* PRESCRIPTION COLUMN */}
+                                            <td>
+                                                {r.prescription.length > 0 ? (
+                                                    <ul className="prescription-list">
+                                                        {r.prescription.map((m, i) => (
+                                                            <li key={i}>
+                                                                <b>{m.name}</b> — {m.dosage}, {m.duration}
+                                                                <span className="timing-badge">
+                                                                    {m.timing}
+                                                                </span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                ) : (
+                                                    <span className="text-muted">No medicines</span>
+                                                )}
+                                            </td>
+
                                             <td>
                                                 <button className="btn btn-sm btn-outline-info">
                                                     View
