@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../../styles/doctor/doctor-appointments.css";
 
 function DoctorAppointments() {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   // -------- STATIC DATA (TEMPORARY) --------
   const staticAppointments = [
@@ -22,7 +24,7 @@ function DoctorAppointments() {
       date: "2026-01-25",
       time: "12:00 PM",
       reason: "Fever & Cold",
-      status: "APPROVED"
+      status: "COMPLETED"
     },
     {
       id: 203,
@@ -30,24 +32,22 @@ function DoctorAppointments() {
       date: "2026-01-26",
       time: "04:00 PM",
       reason: "Blood Pressure",
-      status: "COMPLETED"
+      status: "PENDING"
     }
   ];
 
   useEffect(() => {
-    // simulate API delay
     setTimeout(() => {
       setAppointments(staticAppointments);
       setLoading(false);
     }, 500);
   }, []);
 
-  // -------- STATUS UPDATE (STATIC) --------
-  const updateStatus = (id, newStatus) => {
-    const updated = appointments.map((a) =>
-      a.id === id ? { ...a, status: newStatus } : a
-    );
-    setAppointments(updated);
+  // -------- OPEN CONSULTATION PAGE --------
+  const openPatientConsultation = (appointment) => {
+    navigate("/doctor/patient-consultation", {
+      state: { appointment }
+    });
   };
 
   return (
@@ -77,74 +77,54 @@ function DoctorAppointments() {
               </thead>
 
               <tbody>
-  {loading ? (
-    <tr>
-      <td colSpan="7" className="text-center">
-        Loading appointments...
-      </td>
-    </tr>
-  ) : appointments.length === 0 ? (
-    <tr>
-      <td colSpan="7" className="text-center text-danger">
-        No appointments found
-      </td>
-    </tr>
-  ) : (
-    appointments.map((a) => (
-      <tr key={a.id}>
-        <td>{a.id}</td>
-        <td>{a.patientName}</td>
-        <td>{a.date}</td>
-        <td>{a.time}</td>
-        <td>{a.reason}</td>
-        <td>
-          <span
-            className={`badge ${
-              a.status === "APPROVED"
-                ? "bg-success"
-                : a.status === "COMPLETED"
-                ? "bg-primary"
-                : "bg-warning"
-            }`}
-          >
-            {a.status}
-          </span>
-        </td>
-        <td>
-          {a.status === "PENDING" && (
-            <>
-              <button
-                className="btn btn-sm btn-success me-2"
-                onClick={() => updateStatus(a.id, "APPROVED")}
-              >
-                Approve
-              </button>
-              <button
-                className="btn btn-sm btn-danger"
-                onClick={() => updateStatus(a.id, "REJECTED")}
-              >
-                Reject
-              </button>
-            </>
-          )}
+                {loading ? (
+                  <tr>
+                    <td colSpan="7" className="text-center">
+                      Loading appointments...
+                    </td>
+                  </tr>
+                ) : appointments.length === 0 ? (
+                  <tr>
+                    <td colSpan="7" className="text-center text-danger">
+                      No appointments found
+                    </td>
+                  </tr>
+                ) : (
+                  appointments.map((a) => (
+                    <tr key={a.id}>
+                      <td>{a.id}</td>
+                      <td>{a.patientName}</td>
+                      <td>{a.date}</td>
+                      <td>{a.time}</td>
+                      <td>{a.reason}</td>
 
-          {a.status === "APPROVED" && (
-            <button
-              className="btn btn-sm btn-primary"
-              onClick={() => updateStatus(a.id, "COMPLETED")}
-            >
-              Mark Completed
-            </button>
-          )}
+                      {/* STATUS ONLY PENDING / COMPLETED */}
+                      <td>
+                        <span
+                          className={`badge ${
+                            a.status === "COMPLETED"
+                              ? "bg-success"
+                              : "bg-warning"
+                          }`}
+                        >
+                          {a.status}
+                        </span>
+                      </td>
 
-          {a.status === "COMPLETED" && (
-            <span className="text-success fw-bold">✔ Done</span>
-          )}
-        </td>
-      </tr>
-    ))
-  )}
-</tbody>
+                      {/* ACTION: ONLY OPEN PATIENT */}
+                      <td>
+                        <button
+                          className="btn btn-sm btn-outline-primary"
+                          onClick={() => openPatientConsultation(a)}
+                        >
+                          Open Patient
+                        </button>
+                      </td>
+
+                    </tr>
+                  ))
+                )}
+              </tbody>
 
             </table>
           </div>

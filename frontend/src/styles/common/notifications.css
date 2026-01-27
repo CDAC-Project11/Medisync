@@ -68,3 +68,7 @@
     background: red;
     color: white;
 }
+.notif-box.read {
+  opacity: 0.7;
+  background: #f7f7f7;
+}

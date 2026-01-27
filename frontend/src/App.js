@@ -19,6 +19,10 @@ import DoctorChat from "./pages/doctor/DoctorChat";
 import DoctorPatientHealth from "./pages/doctor/DoctorPatientHealth";
 import DoctorClinicAnalysis from "./pages/doctor/DoctorClinicAnalysis";
 import PatientMedicalRecords from "./pages/patient/PatientMedicalRecords";
+import DoctorPatientConsultation from "./pages/doctor/DoctorPatientConsultation";
+import DoctorBill from "./pages/doctor/DoctorBill";
+
+
 
 function App() {
   return (
@@ -46,7 +50,8 @@ function App() {
         <Route path="/doctor/patient-health" element={<DoctorPatientHealth />} />
         <Route path="/doctor/analysis" element={<DoctorClinicAnalysis />}/>
         <Route path="/patient/medical-records" element={<PatientMedicalRecords />} />
-
+        <Route path="/doctor/patient-consultation" element={<DoctorPatientConsultation />} />
+        <Route path="/doctor/generate-bill" element={<DoctorBill />} />
 
 
 
