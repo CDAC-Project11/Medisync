@@ -1,0 +1,76 @@
+/* BACKGROUND */
+.bg-parallax {
+    position: fixed;
+    inset: 0;
+    height: 130%;
+    background-image: url("../../assets/images/doctor.jpeg");
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    height: 130%;
+    background: rgba(99, 161, 208, 0.45);
+    z-index: -1;
+}
+
+/* PAGE */
+.page-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 95px;
+}
+
+.page-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    margin-bottom: 20px;
+}
+
+/* LINKS */
+.link-clean {
+    text-decoration: none;
+}
+
+/* DASHBOARD CARD */
+.dash-card {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 18px;
+    padding: 30px;
+    border: 1.5px solid rgba(13, 110, 253, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 40, 80, 0.15);
+    text-align: center;
+    transition: 0.3s ease;
+    height: 100%;
+    cursor: pointer;
+}
+
+.dash-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+    border-color: #084298;
+}
+
+.dash-icon {
+    font-size: 48px;
+    color: #084298;
+    margin-bottom: 12px;
+}
+
+.dash-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #084298;
+    margin-bottom: 8px;
+}
+
+.dash-desc {
+    font-size: 15px;
+    color: #46607a;
+}

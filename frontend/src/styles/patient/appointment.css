@@ -1,0 +1,442 @@
+/* Appointment Page Styles */
+
+.appointment-page {
+    background-image: url("../../assets/images/doctor.jpeg");
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    font-family: "Poppins", sans-serif;
+}
+
+.page-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(99, 161, 208, 0.65);
+    z-index: 1;
+}
+
+
+.page-content {
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.appointment-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .appointment-grid {
+        grid-template-columns: 5fr 7fr;
+    }
+}
+
+/* Glass Card Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+
+/* Doctor Card */
+.doctor-info-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.doctor-img {
+    width: 180px;
+    height: 215px;
+    border-radius: 18px;
+    object-fit: cover;
+    object-position: top;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-details {
+    flex: 1;
+    min-width: 200px;
+}
+
+.doctor-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.doctor-specialty {
+    color: #6b7280;
+    margin: 0;
+}
+
+.doctor-experience {
+    margin: 0;
+    font-weight: 600;
+}
+
+.doctor-qualification {
+    margin: 0;
+}
+
+.divider {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #d1d5db;
+}
+
+.info-text {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Booking Card */
+.booking-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.clinic-info {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Validation Boxes */
+.error-box {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-left: 5px solid #dc2626;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.success-box {
+    background: #d1fae5;
+    color: #065f46;
+    border-left: 5px solid #10b981;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Calendar */
+.calendar {
+    background: #f8fbff;
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid #dbeafe;
+    margin-top: 1rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.month-nav-btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    background: white;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.month-nav-btn:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.calendar-title {
+    font-weight: bold;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.calendar-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.calendar-table thead th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+}
+
+.calendar-date {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.calendar-date:not(.empty-date):not(.past-date):hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.calendar-date.active-date {
+    background: #2563eb !important;
+    color: white !important;
+}
+
+.calendar-date.past-date {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.calendar-date.empty-date {
+    cursor: default;
+}
+
+/* Time Slots */
+.section-label {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+}
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.time-btn {
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #2563eb;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.time-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.time-btn.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* Symptoms Input */
+.symptoms-input {
+    width: 100%;
+    padding: 0.75rem;
+
+    /* ---------- PAGE BACKGROUND (same as EJS) ---------- */
+    body {
+        background: url("https://media.istockphoto.com/id/1319031310/photo/doctor-writing-a-medical-prescription.jpg?s=1024x1024&w=is&k=20&c=nChrkueWF_kh09Gsm_cjWYAY1BnyQ3XMt9ITykBiIYQ=") no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        min-height: 100vh;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        font-family: "Poppins", sans-serif;
+    }
+
+    /* Background overlay */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(99, 161, 208, 0.5);
+        z-index: -1;
+    }
+
+    /* Glass card without blur */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 22px;
+        padding: 25px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+
+
+
+    /* ---------- DOCTOR IMAGE ---------- */
+    .doctor-img {
+        width: 180px;
+        height: 215px;
+        border-radius: 18px;
+        object-fit: cover;
+        object-position: top;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ---------- CALENDAR ---------- */
+    .calendar {
+        background: #f8fbff;
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid #dbeafe;
+    }
+
+    .calendar td {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-weight: 500;
+    }
+
+    .calendar td:hover {
+        background: #3b82f6;
+        color: white;
+    }
+
+    .calendar .active-date {
+        background: #2563eb !important;
+        color: white !important;
+    }
+
+    /* ---------- TIME BUTTONS ---------- */
+    .time-btn {
+        padding: 10px 18px;
+        border-radius: 12px;
+        background: white;
+        border: 1px solid #2563eb;
+        cursor: pointer;
+        transition: 0.2s;
+        font-size: 14px;
+    }
+
+    .time-btn:hover,
+    .time-btn.active {
+        background: #2563eb;
+        color: white;
+    }
+
+    /* ---------- BOOK BUTTON ---------- */
+    .book-btn {
+        background: #fbbf24;
+        padding: 15px;
+        width: 100%;
+        border-radius: 40px;
+        font-size: 18px;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+        border: none;
+        cursor: pointer;
+    }
+
+    .book-btn:hover {
+        background: #f59e0b;
+    }
+
+    /* ---------- VALIDATION BOXES ---------- */
+    .error-box {
+        background: #fee2e2;
+        color: #b91c1c;
+        border-left: 5px solid #dc2626;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .success-box {
+        background: #d1fae5;
+        color: #065f46;
+        border-left: 5px solid #10b981;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+}
+
+.symptoms-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Book Button */
+.book-btn {
+    background: #fbbf24;
+    color: #000;
+    padding: 15px;
+    width: 100%;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+    border: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s;
+}
+
+.book-btn:hover {
+    background: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .doctor-info-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .doctor-img {
+        width: 150px;
+        height: 180px;
+    }
+
+    .calendar-date {
+        width: 40px;
+        height: 40px;
+        font-size: 0.875rem;
+    }
+
+    .time-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}

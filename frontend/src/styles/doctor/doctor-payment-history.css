@@ -1,0 +1,25 @@
+.doctor-payment-wrapper {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.doctor-payment-wrapper h1 {
+  text-align: center;
+  color: #084298;
+  font-weight: 800;
+}
+
+.doctor-payment-table th {
+  background: #0d6efd;
+  color: white;
+  text-align: center;
+}
+
+.doctor-payment-table td {
+  text-align: center;
+  vertical-align: middle;
+}

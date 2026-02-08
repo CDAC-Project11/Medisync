@@ -1,0 +1,30 @@
+.doctor-health-wrapper {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  max-width: 900px;
+  margin: auto;
+  padding: 32px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.doctor-health-wrapper h1 {
+  text-align: center;
+  color: #084298;
+  font-weight: 800;
+}
+
+.health-card {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.bmi-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.bmi-box h3 {
+  font-weight: 800;
+  color: #084298;
+}

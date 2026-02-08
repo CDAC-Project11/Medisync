@@ -1,0 +1,43 @@
+body {
+    /* background: url("/images/doctor.jpeg") no-repeat center center fixed; */
+    background-size: cover;
+    font-family: "Poppins", system-ui, Arial;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(99, 161, 208, 0.45);
+    z-index: -1;
+}
+
+.page-content {
+    position: relative;
+    z-index: 2;
+}
+
+.reg-card {
+    border-radius: 16px;
+    animation: slideDown 0.5s ease-out;
+     margin-top: 25px;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-18px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #0b76d1;
+    box-shadow: 0 0 0 0.15rem rgba(11, 118, 209, 0.12);
+}
